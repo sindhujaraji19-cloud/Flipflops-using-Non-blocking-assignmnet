@@ -100,8 +100,9 @@ endmodule
 #### SIMULATION OUTPUT
 
 ------- paste the output here -------
+![Uploading Screenshot 2025-09-24 112936.png…]()
 
----![Uploading Screenshot 2025-09-24 112936.png…]()
+
 
 
 ### JK Flip-Flop (Non Blocking)
