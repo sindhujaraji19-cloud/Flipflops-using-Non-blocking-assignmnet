@@ -102,14 +102,53 @@ endmodule
 ```
 ### JK Flip-Flop Test bench 
 ```verilog
+`timescale 1ns / 1ps
 
+module JKflipflop(J, K, clk, reset, q);
+input J, K, clk, reset;
+output reg q;
+always @ (posedge clk) begin
+if (reset == 1)
+q<=0;   
+else begin
+case ({J, K})
+2'b00: q <= q;     
+2'b01: q <= 1'b0;  
+2'b10: q <= 1'b1;  
+2'b11: q <= ~q;    
+endcase
+end
+end
+endmodule
+
+
+
+
+endmodulemodule tb_jkff;
+reg J, K, clk, reset;
+wire Q;
+JKflipflop uut (J, K, clk, reset, Q);
+always #5 clk = ~clk;
+initial begin
+clk = 0; J = 0; K = 0; reset = 1;
+
+#10 reset = 0;
+#10 J = 1; K = 0;   
+#10 J = 0; K = 1;   
+#10 J = 1; K = 1;   
+#10 J = 0; K = 0;   
+#10 J = 1; K = 1;   
+#20 $finish;
+end
+endmodule
 
 
 ```
 #### SIMULATION OUTPUT
 
 ------- paste the output here -------
----
+---![Uploading Screenshot 2025-09-24 112945.png…]()
+
 ### D Flip-Flop (Non Blocking)
 ```verilog
 module d_ff (
