@@ -28,29 +28,6 @@ Non Blocking assignments execute sequentially in the given order, which makes it
 
 ### SR Flip-Flop (Non Blocking)
 ```verilog
-module sr_ff (
-    input wire S, R, clk,
-    output reg Q
-);
-    always @(posedge clk) begin
-        if (S && ~R)
-            Q <= 1;
-        else if (~S && R)
-            Q <= 0;
-        else if (~S && ~R)
-            Q <= Q; // No change
-        else
-            Q <= 1'bx; // Invalid condition
-    end
-endmodule
-
-   
-
-
-endmodule
-```
-### SR Flip-Flop Test bench 
-```verilog
 `timescale 1ns / 1ps
 
 
@@ -70,8 +47,11 @@ case({S,R})
 2'b11:q<=1'bx;
 endcase
 end
-end
-endmodulemodule tb_srff;
+endmodul
+```
+### SR Flip-Flop Test bench 
+```verilog
+module tb_srff;
   reg S, R, clk, reset;
   wire Q;
 
@@ -93,9 +73,6 @@ endmodulemodule tb_srff;
   end
 endmodule
 
-endmodule
-
-
 ```
 #### SIMULATION OUTPUT
 
@@ -106,18 +83,6 @@ endmodule
 
 
 ### JK Flip-Flop (Non Blocking)
-```verilog
-module jk_ff (
-    input wire J, K, clk,
-    output reg Q
-);
-    always @(posedge clk) begin
-
-
-
-endmodule
-```
-### JK Flip-Flop Test bench 
 ```verilog
 `timescale 1ns / 1ps
 
@@ -135,13 +100,11 @@ case ({J, K})
 2'b11: q <= ~q;    
 endcase
 end
-end
 endmodule
-
-
-
-
-endmodulemodule tb_jkff;
+```
+### JK Flip-Flop Test bench 
+```verilog
+module tb_jkff;
 reg J, K, clk, reset;
 wire Q;
 JKflipflop uut (J, K, clk, reset, Q);
@@ -167,19 +130,8 @@ endmodule
 
 ### D Flip-Flop (Non Blocking)
 ```verilog
-module d_ff (
-    input wire d,clk,
-    output reg Q
-);
-    always @(posedge clk) begin
 
-
-
-endmodule
-```
-### D Flip-Flop Test bench 
-```verilog
-timescale 1ns / 1ps
+``timescale 1ns / 1ps
 
 module Dflipflop(D, clk, reset, Q);
 input D, clk, reset;
@@ -191,7 +143,11 @@ Q <= 0;
 else
 Q <= D;        
 end
-endmodulemodule tb_dff;
+endmodule`
+
+### T Flip-Flop Test bench 
+```verilog
+module tb_dff;
 reg D, clk, reset;
 wire Q;
 Dflipflop UUT (D, clk, reset, Q);
@@ -221,18 +177,6 @@ endmodule
 
 ### T Flip-Flop (Non Blocking)
 ```verilog
-module d_ff (
-    input wire d,clk,
-    output reg Q
-);
-    always @(posedge clk) begin
-
-
-
-endmodule
-```
-### T Flip-Flop Test bench 
-```verilog
 `timescale 1ns / 1ps
 
 module Tflipflop(T, clk, reset, Q);
@@ -248,8 +192,9 @@ module Tflipflop(T, clk, reset, Q);
       Q <= Q;          
   end
 endmodule
-
-
+```
+### T Flip-Flop Test bench 
+```verilog
 module tb_tff;
   reg T, clk, reset;
   wire Q;
