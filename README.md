@@ -28,6 +28,14 @@ Non Blocking assignments execute sequentially in the given order, which makes it
 
 ### SR Flip-Flop (Non Blocking)
 ```verilog
+
+   
+
+
+endmodule
+```
+### SR Flip-Flop Test bench 
+```verilog
 `timescale 1ns / 1ps
 
 
@@ -48,16 +56,7 @@ case({S,R})
 endcase
 end
 end
-endmodule
-   
-
-
-endmodule
-```
-### SR Flip-Flop Test bench 
-```verilog
-
-module tb_srff;
+endmodulemodule tb_srff;
   reg S, R, clk, reset;
   wire Q;
 
@@ -77,6 +76,8 @@ module tb_srff;
 
     #20 $finish;
   end
+endmodule
+
 endmodule
 
 
