@@ -186,7 +186,49 @@ endmodule
 ```
 ### T Flip-Flop Test bench 
 ```verilog
+`timescale 1ns / 1ps
 
+module Tflipflop(T, clk, reset, Q);
+  input T, clk, reset;
+  output reg Q;
+
+  always @ (posedge clk) begin
+    if (reset == 1)
+      Q <= 0;          
+    else if (T == 1)
+      Q <= ~Q;         
+    else
+      Q <= Q;          
+  end
+endmodule
+
+
+module tb_tff;
+  reg T, clk, reset;
+  wire Q;
+
+  
+  Tflipflop UUT (T, clk, reset, Q);
+
+  
+  always #5 clk = ~clk;
+
+  initial begin
+    
+    clk = 0; T = 0; reset = 1;
+
+   
+    #10 reset = 0;
+
+    
+    #10 T = 1;   
+    #20 T = 0;   
+    #20 T = 1;   
+    #20 T = 0;  
+
+    #20 $finish;
+  end
+endmodule
 
 
 ```
@@ -194,6 +236,7 @@ endmodule
 #### SIMULATION OUTPUT
 
 ------- paste the output here -------
+![Uploading Screenshot 2025-09-24 113327.png…]()
 
 ---
 
