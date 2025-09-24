@@ -28,6 +28,21 @@ Non Blocking assignments execute sequentially in the given order, which makes it
 
 ### SR Flip-Flop (Non Blocking)
 ```verilog
+module sr_ff (
+    input wire S, R, clk,
+    output reg Q
+);
+    always @(posedge clk) begin
+        if (S && ~R)
+            Q <= 1;
+        else if (~S && R)
+            Q <= 0;
+        else if (~S && ~R)
+            Q <= Q; // No change
+        else
+            Q <= 1'bx; // Invalid condition
+    end
+endmodule
 
    
 
