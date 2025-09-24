@@ -163,7 +163,37 @@ endmodule
 ```
 ### D Flip-Flop Test bench 
 ```verilog
+timescale 1ns / 1ps
 
+module Dflipflop(D, clk, reset, Q);
+input D, clk, reset;
+output reg Q;
+
+always @ (posedge clk) begin
+if (reset == 1)
+Q <= 0;        
+else
+Q <= D;        
+end
+endmodulemodule tb_dff;
+reg D, clk, reset;
+wire Q;
+Dflipflop UUT (D, clk, reset, Q);
+  always #5 clk = ~clk;
+
+initial begin
+clk = 0; D = 0; reset = 1;
+#10 reset = 0;
+#10 D = 1;   
+#10 D = 0;   
+#10 D = 1;   
+#10 D = 1;   
+#10 D = 0;   
+#10 D = 1;   
+
+#20 $finish;
+end
+endmodule
 
 
 ```
@@ -171,7 +201,8 @@ endmodule
 #### SIMULATION OUTPUT
 
 ------- paste the output here -------
----
+---![Uploading Screenshot 2025-09-24 113341.png…]()
+
 ### T Flip-Flop (Non Blocking)
 ```verilog
 module d_ff (
