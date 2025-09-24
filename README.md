@@ -99,8 +99,8 @@ endmodule
 ```
 #### SIMULATION OUTPUT
 
-------- paste the output here -------
-![Uploading Screenshot 2025-09-24 112936.png…]()
+![SR ff](https://github.com/user-attachments/assets/c06b331f-53dd-4cf1-8808-f1bee9145684)
+
 
 
 
@@ -162,9 +162,8 @@ endmodule
 
 ```
 #### SIMULATION OUTPUT
+![Jk ff](https://github.com/user-attachments/assets/43ff28b4-4b04-4023-941c-357f75922646)
 
-------- paste the output here -------
----![Uploading Screenshot 2025-09-24 112945.png…]()
 
 ### D Flip-Flop (Non Blocking)
 ```verilog
@@ -217,8 +216,8 @@ endmodule
 
 #### SIMULATION OUTPUT
 
-------- paste the output here -------
----![Uploading Screenshot 2025-09-24 113341.png…]()
+![D ff](https://github.com/user-attachments/assets/ae2ff32e-d1e2-4f8c-b94e-436657d147c5)
+
 
 ### T Flip-Flop (Non Blocking)
 ```verilog
@@ -277,16 +276,16 @@ module tb_tff;
     #20 $finish;
   end
 endmodule
+```
 
 
-``
 
 #### SIMULATION OUTPUT
 
-------- paste the output here -------
-![Uploading Screenshot 2025-09-24 113327.png…]()
+![Tff](https://github.com/user-attachments/assets/78667dde-85fc-4716-a0ee-d5833e9e0ef2)
 
----
+
+
 
 ### RESULT
 
